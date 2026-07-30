@@ -40,5 +40,6 @@ class add_dialog(QDialog):
             self.input_name.clear()
             self.input_price.clear()
             self.input_count.clear()
+            self.close()
         else:
             QMessageBox.critical(self, "실패", "추가 중 오류가 발생하였습니다.")

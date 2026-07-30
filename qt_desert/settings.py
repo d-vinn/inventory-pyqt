@@ -47,6 +47,7 @@ class Set(QMainWindow):
             self.table.setItem(r, 1, QTableWidgetItem(price))
             self.table.setItem(r, 2, QTableWidgetItem(str(count)))
         self.table.resizeColumnsToContents()
+        self.table.repaint()
 
     def open_add_item(self):
         self.add_win = add_dialog()

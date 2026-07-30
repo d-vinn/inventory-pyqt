@@ -32,5 +32,6 @@ class del_dialog(QDialog):
             if ok:
                 QMessageBox.information(self, "완료", "삭제되었습니다.")
                 self.input_name.clear()
+                self.close()
             else:
                 QMessageBox.critical(self, "실패", "삭제 중 오류가 발생하였습니다.")

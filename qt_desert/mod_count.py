@@ -36,5 +36,6 @@ class modcount_dialog(QDialog):
                 QMessageBox.information(self, "완료", "변경되었습니다.")
                 self.input_name.clear()
                 self.input_count.clear()
+                self.close()
             else:
                 QMessageBox.critical(self, "실패", "변경 중 오류가 발생하였습니다.")
