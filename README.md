@@ -1,5 +1,4 @@
-<H1>TQ Dessert</H1>
-(qt_desert) folder
+<H1>QT Dessert</H1>
 
 <b>MENU</b>
 - 아메리카노 3,500
@@ -9,7 +8,3 @@
 - 딸기 조각케이크 7,500
 - 에그타르트 3,000
 
-login은 가장 마지막에 구현!!
-USER : 사장님 테이블 (login)
-- id -> primary key!
-- pw
