@@ -16,6 +16,7 @@ class del_dialog(QDialog):
           form.addRow("메뉴명", self.input_name)
 
           self.btn_done = QPushButton("삭제 완료")
+          self.btn_done.setStyleSheet('background:black;color:white')
           self.btn_done.clicked.connect(self.del_product)
 
           layout = QVBoxLayout()

@@ -16,6 +16,7 @@ class ShowEnd(QMainWindow):
         message_box.setWindowTitle("Information")
         message_box.setText("주문이 완료되었습니다.")
         message_box.setIcon(QMessageBox.Icon.Information)
+        message_box.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/roll-cake.png"))
         message_box.exec()
         sys.exit(0) 
 

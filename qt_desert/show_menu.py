@@ -8,7 +8,7 @@ class ShowMenu(QMainWindow):
         super().__init__()
         self.setWindowTitle("QT Dessert 주문")
         self.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/roll-cake.png"))
-        self.setStyleSheet('background-color:white;')
+        self.setStyleSheet('background-color:black;color:white')
         self.db = DB(**DB_CONFIG)
 
         central = QWidget()
@@ -21,7 +21,8 @@ class ShowMenu(QMainWindow):
         self.table.setHorizontalHeaderLabels(["메뉴명", "가격", "잔여 수량"])
         self.table.setEditTriggers(self.table.NoEditTriggers)  # 표준 예시: 목록은 읽기 전용
         self.table.verticalHeader().setVisible(False)
-        
+        self.table.setStyleSheet('color:black;background-color:white')
+
         hbox.addWidget(self.table)
 
         ordervbox = QVBoxLayout()
@@ -38,6 +39,7 @@ class ShowMenu(QMainWindow):
 
         bigvbox.addLayout(hbox)
         self.btn_order = QPushButton("주문 완료")
+        self.btn_order.setStyleSheet('color:black;background-color:white')
         self.btn_order.clicked.connect(self.check_val)
         bigvbox.addWidget(self.btn_order)
 

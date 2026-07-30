@@ -18,6 +18,7 @@ class modcount_dialog(QDialog):
           form.addRow("새로운 수량", self.input_count)
 
           self.btn_done = QPushButton("수정 완료")
+          self.btn_done.setStyleSheet('background:black;color:white')
           self.btn_done.clicked.connect(self.mod_product)
 
           layout = QVBoxLayout()

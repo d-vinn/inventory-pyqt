@@ -19,10 +19,13 @@ class mod_dialog(QMainWindow):
 
         btn_box = QHBoxLayout()
         self.btn_name = QPushButton("메뉴명 수정")
+        self.btn_name.setStyleSheet('background:black;color:white')
         self.btn_name.clicked.connect(self.open_mod_name)
         self.btn_price = QPushButton("가격 수정")
+        self.btn_price.setStyleSheet('background:black;color:white')
         self.btn_price.clicked.connect(self.open_mod_price) 
         self.btn_count = QPushButton("수량 수정")
+        self.btn_count.setStyleSheet('background:black;color:white')
         self.btn_count.clicked.connect(self.open_mod_count)
         btn_box.addWidget(self.btn_name)
         btn_box.addWidget(self.btn_price)

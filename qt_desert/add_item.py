@@ -20,6 +20,7 @@ class add_dialog(QDialog):
           form.addRow("수량", self.input_count)
 
           self.btn_done = QPushButton("추가 완료")
+          self.btn_done.setStyleSheet('background:black;color:white')
           self.btn_done.clicked.connect(self.add_product)
 
           layout = QVBoxLayout()

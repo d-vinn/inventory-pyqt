@@ -13,7 +13,7 @@ class Set(QMainWindow):
         super().__init__()
         self.setWindowTitle("QT Dessert Settings")
         self.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/setting.png"))
-        self.setStyleSheet('background-color:white;')
+        self.setStyleSheet('background-color:black;')
         self.db = DB(**DB_CONFIG)
 
         central = QWidget()
@@ -21,17 +21,21 @@ class Set(QMainWindow):
         vbox = QVBoxLayout(central)
 
         btn_box = QHBoxLayout()
-        self.btn_add = QPushButton("추가")
+        self.btn_add = QPushButton("메뉴 추가")
+        self.btn_add.setStyleSheet('border:None;background:white;height:18;width:20px;color:black;')
         self.btn_add.clicked.connect(self.open_add_item)
-        self.btn_del = QPushButton("삭제")
+        self.btn_del = QPushButton("메뉴 삭제")
+        self.btn_del.setStyleSheet('border:None;background:white;height:18;width:30px;color:black;')
         self.btn_del.clicked.connect(self.open_del_item) 
         self.btn_mod = QPushButton("수정")
+        self.btn_mod.setStyleSheet('border:None;background:white;height:18;width:30px;color:black;')
         self.btn_mod.clicked.connect(self.open_mod_item)
         btn_box.addWidget(self.btn_add)
         btn_box.addWidget(self.btn_del)
         btn_box.addWidget(self.btn_mod)
 
         self.table = QTableWidget()
+        self.table.setStyleSheet('background:white;color:black')
         self.table.setColumnCount(3)
         self.table.setHorizontalHeaderLabels(["메뉴명", "가격", "잔여 수량"])
         self.table.setEditTriggers(self.table.NoEditTriggers)  # 표준 예시: 목록은 읽기 전용
