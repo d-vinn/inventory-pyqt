@@ -6,11 +6,14 @@ from db_helper import DB, DB_CONFIG
 from add_item import add_dialog
 from del_item import del_dialog
 from mod_item import mod_dialog
+from PyQt5.QtGui import QIcon
 
 class Set(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("QT Dessert Settings")
+        self.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/setting.png"))
+        self.setStyleSheet('background-color:white;')
         self.db = DB(**DB_CONFIG)
 
         central = QWidget()

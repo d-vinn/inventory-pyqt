@@ -1,11 +1,14 @@
 from PyQt5.QtWidgets import QSpinBox, QMessageBox, QTableWidgetItem, QMainWindow, QTableWidget, QHBoxLayout, QLabel, QPushButton, QVBoxLayout, QWidget, QVBoxLayout
 from db_helper import DB, DB_CONFIG
 from show_order import ShowOrder
+from PyQt5.QtGui import QIcon
 
 class ShowMenu(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("QT Dessert 주문")
+        self.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/roll-cake.png"))
+        self.setStyleSheet('background-color:white;')
         self.db = DB(**DB_CONFIG)
 
         central = QWidget()
@@ -56,9 +59,17 @@ class ShowMenu(QMainWindow):
                 message_box.setWindowTitle("Information")
                 message_box.setText("수량이 초과되었습니다.")
                 message_box.setIcon(QMessageBox.Icon.Information)
+                message_box.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/warning.png"))
                 message_box.exec()
                 return
-            
+        if sum(self.valuelist)==0:
+            msgbox = QMessageBox()
+            msgbox.setWindowTitle("Information")
+            msgbox.setText("선택한 항목이 없습니다.")
+            msgbox.setIcon(QMessageBox.Icon.Information)
+            msgbox.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/warning.png"))
+            msgbox.exec()
+            return
         self.orderwin = ShowOrder(self.valuelist)
         self.orderwin.show()
 

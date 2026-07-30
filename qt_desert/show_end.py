@@ -2,11 +2,14 @@ from PyQt5.QtWidgets import QSpinBox, QMessageBox, QTableWidgetItem, QMainWindow
 from db_helper import DB, DB_CONFIG
 import time, sys
 from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QIcon
 
 class ShowEnd(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("QT Dessert 주문 완료")
+        self.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/roll-cake.png"))
+        self.setStyleSheet('background-color:white;')
         self.db = DB(**DB_CONFIG)
 
         message_box = QMessageBox()

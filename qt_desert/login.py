@@ -1,21 +1,31 @@
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QFormLayout, QLineEdit, QPushButton, QMessageBox
 from db_helper import DB, DB_CONFIG
+from PyQt5.QtGui import QIcon
 
 class LoginDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setWindowTitle("로그인")
+        self.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/setting.png"))
+        self.setWindowTitle("LOGIN")
+        self.setStyleSheet('background-color:white;')
         self.db = DB(**DB_CONFIG)
 
         self.username = QLineEdit()
+        self.username.setFixedHeight(20)
+        self.username.setFixedWidth(100)
+        self.username.setPlaceholderText("input id")
         self.password = QLineEdit()
+        self.password.setFixedWidth(100)
+        self.password.setFixedHeight(20)
+        self.password.setPlaceholderText("input password")
         self.password.setEchoMode(QLineEdit.Password)
 
         form = QFormLayout()
-        form.addRow("아이디", self.username)
-        form.addRow("비밀번호", self.password)
+        form.addRow("ID", self.username)
+        form.addRow("PW", self.password)
 
-        self.btn_login = QPushButton("로그인")
+        self.btn_login = QPushButton("log in")
+        self.btn_login.setStyleSheet('color:white; background:black')
         self.btn_login.clicked.connect(self.try_login)
 
         layout = QVBoxLayout()

@@ -3,11 +3,14 @@ from db_helper import DB, DB_CONFIG
 from mod_name import modname_dialog
 from mod_count import modcount_dialog
 from mod_price import modprice_dialog
+from PyQt5.QtGui import QIcon
 
 class mod_dialog(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("메뉴 수정")
+        self.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/setting.png"))
+        self.setStyleSheet('background-color:white;')
         self.db = DB(**DB_CONFIG)
 
         central = QWidget()

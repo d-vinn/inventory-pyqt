@@ -1,10 +1,13 @@
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QFormLayout, QLineEdit, QPushButton, QMessageBox
 from db_helper import DB, DB_CONFIG
+from PyQt5.QtGui import QIcon
 
 class del_dialog(QDialog):
     def __init__(self, parent=None):
           super().__init__(parent)
           self.setWindowTitle("메뉴 삭제")
+          self.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/setting.png"))
+          self.setStyleSheet('background-color:white;')
           self.db = DB(**DB_CONFIG)
 
           self.input_name = QLineEdit()
