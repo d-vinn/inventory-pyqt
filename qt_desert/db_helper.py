@@ -15,6 +15,14 @@ class DB:
     def connect(self):
         return pymysql.connect(**self.config)
 
+    def verify_user(self, username, password):
+        sql = "SELECT COUNT(*) FROM users WHERE id=%s AND pw=%s"
+        with self.connect() as conn:
+            with conn.cursor() as cur:
+                cur.execute(sql, (username, password))
+                count, = cur.fetchone()
+                return count == 1
+
     def watch_products(self):
         sql = 'select * from products'
         with self.connect() as conn:
