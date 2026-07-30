@@ -1,6 +1,3 @@
-#데이터 목록 보여줌, 옆에 수량 표시 기능 있음, 
-# 상단에 추가/삭제/수정(재고나 상품명 변경) 버튼 있음
-
 from PyQt5.QtWidgets import QSpinBox, QTableWidgetItem, QMainWindow, QTableWidget, QHBoxLayout, QLabel, QPushButton, QVBoxLayout, QWidget, QVBoxLayout
 from db_helper import DB, DB_CONFIG
 from show_order import ShowOrder
@@ -26,34 +23,30 @@ class ShowMenu(QMainWindow):
 
         ordervbox = QVBoxLayout()
         name_col = self.db.watch_names()
-        spinboxlist = []
+        self.spinboxlist = []
         for i in range(len(name_col)):
             a = QHBoxLayout()
             a.addWidget(QLabel(str(name_col[i])[2:-3]))
-            spinboxlist.append(QSpinBox())
-            a.addWidget(spinboxlist[i])
+            self.spinboxlist.append(QSpinBox())
+            a.addWidget(self.spinboxlist[i])
             ordervbox.addLayout(a)
 
         hbox.addLayout(ordervbox)
 
         bigvbox.addLayout(hbox)
         self.btn_order = QPushButton("주문 완료")
-        self.btn_order.clicked.connect(self.show_order)
+        self.btn_order.clicked.connect(self.check_val)
         bigvbox.addWidget(self.btn_order)
 
 
         self.load_product()
 
+    def check_val(self):
         self.valuelist = []
-        for j in spinboxlist:
+        for j in self.spinboxlist:
             self.valuelist.append(j.value())
-
-    def returnval(self):
-        return self.valuelist
-
-    def show_order(self):
         self.orderwin = ShowOrder(self.valuelist)
-        self.orderwin.show()
+        self.orderwin.show()        
 
     def load_product(self):
         rows = self.db.watch_products()
