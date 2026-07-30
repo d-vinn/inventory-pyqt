@@ -13,6 +13,7 @@ class ShowOrder(QMainWindow):
         bigvbox = QVBoxLayout(central)
 
         name_col = self.db.watch_names()
+        counts = self.db.watch_counts()
 
         for i in range(len(name_col)):
             if list[i]>0:
@@ -20,12 +21,14 @@ class ShowOrder(QMainWindow):
                 hbox.addWidget(QLabel(str(name_col[i])[2:-3]))
                 hbox.addWidget(QLabel(str(list[i])))
                 bigvbox.addLayout(hbox)
+                self.db.update_count(name_col[i], int(str(counts[i])[1:-2])-list[i])
 
         bigvbox.addWidget(QLabel("주문 내역을 확인해주세요."))
         
         self.btn_order = QPushButton("주문이 맞게 들어갔습니다.")
         self.btn_order.clicked.connect(self.show_end)
         bigvbox.addWidget(self.btn_order)
+
 
     def show_end(self):
         self.orderwin = ShowEnd()

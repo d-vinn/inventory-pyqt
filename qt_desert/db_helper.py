@@ -29,6 +29,13 @@ class DB:
                     cur.execute(sql)
                     return cur.fetchall()
 
+    def watch_counts(self):
+                sql = 'select count from products'
+                with self.connect() as conn:
+                    with conn.cursor() as cur:
+                        cur.execute(sql)
+                        return cur.fetchall()
+
     def insert_product(self, name, price, count):
         sql = 'insert into products (name, price, count) values (%s, %s, %s)'
         with self.connect() as conn:

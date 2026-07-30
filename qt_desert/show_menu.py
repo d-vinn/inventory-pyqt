@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QSpinBox, QTableWidgetItem, QMainWindow, QTableWidget, QHBoxLayout, QLabel, QPushButton, QVBoxLayout, QWidget, QVBoxLayout
+from PyQt5.QtWidgets import QSpinBox, QMessageBox, QTableWidgetItem, QMainWindow, QTableWidget, QHBoxLayout, QLabel, QPushButton, QVBoxLayout, QWidget, QVBoxLayout
 from db_helper import DB, DB_CONFIG
 from show_order import ShowOrder
 
@@ -45,8 +45,22 @@ class ShowMenu(QMainWindow):
         self.valuelist = []
         for j in self.spinboxlist:
             self.valuelist.append(j.value())
+        self.check_count()
+                
+
+    def check_count(self):
+        counts = self.db.watch_counts()
+        for i in range(len(counts)):
+            if self.valuelist[i]>int(str(counts[i])[1:-2]):
+                message_box = QMessageBox()
+                message_box.setWindowTitle("Information")
+                message_box.setText("수량이 초과되었습니다.")
+                message_box.setIcon(QMessageBox.Icon.Information)
+                message_box.exec()
+                return
+            
         self.orderwin = ShowOrder(self.valuelist)
-        self.orderwin.show()        
+        self.orderwin.show()
 
     def load_product(self):
         rows = self.db.watch_products()
