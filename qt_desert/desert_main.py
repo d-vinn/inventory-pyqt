@@ -13,7 +13,7 @@ class MainWindow(QMainWindow):
         self.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/coffee-shop.png"))
         self.setStyleSheet('background-color:white;')
 
-        self.setFixedSize(450, 800)  #ch
+        self.setFixedSize(300, 500)  #ch
 
         central = QWidget()
         self.setCentralWidget(central)
@@ -22,9 +22,20 @@ class MainWindow(QMainWindow):
 
         top_box = QHBoxLayout()
         self.btn_set = QPushButton("설정")
-        self.btn_set.setStyleSheet('color:white; background-color:rgb(180,180,180);border: none;')
-        self.btn_set.setFixedHeight(20)
-        self.btn_set.setFixedWidth(40)
+        btn_style = """
+            QPushButton {
+                border: none;
+                background-color: rgb(220,220,220);
+                color: white;
+                border-radius: 8px;
+                padding: 3px 8px;
+                font-weight: bold;
+            }
+            QPushButton:hover {
+                background-color: rgb(150, 150, 150);
+            }
+        """
+        self.btn_set.setStyleSheet(btn_style)
         self.btn_set.clicked.connect(self.open_settings)
 
         top_box.addStretch(1)
@@ -41,16 +52,31 @@ class MainWindow(QMainWindow):
         vbox.addStretch(3)
 
         explanation = QLabel("주문을 원하시면 주문 시작하기 버튼을 눌러주세요.")
-        explanation.setStyleSheet('color:rgb(150,150,150); font-size: 13px;')  
+        explanation.setStyleSheet('color:rgb(150,150,150); font-size: 11px;')  
         explanation.setAlignment(Qt.AlignCenter)
         vbox.addWidget(explanation)  
 
         vbox.addSpacing(15)  
 
         self.btn_start = QPushButton("주문 시작하기")
-        self.btn_start.setStyleSheet('color:white; background-color:black; border: none; padding: 12px 0px; font-weight: bold;')  
+        btn_st = """
+            QPushButton {
+                border: solid black;
+                background-color: black;
+                color: white;
+                border-radius: 12px;
+                padding: 6px 12px;
+                font-weight: bold;
+            }
+            QPushButton:hover {
+                color: black;
+                background-color: white;
+                border: 1px solid black;
+            }
+        """  
+        self.btn_start.setStyleSheet(btn_st)  
         self.btn_start.setFixedHeight(45)
-        self.btn_start.setFixedWidth(300) 
+        self.btn_start.setFixedWidth(200) 
         self.btn_start.clicked.connect(self.open_show_menu)
         vbox.addWidget(self.btn_start, alignment=Qt.AlignCenter)
 

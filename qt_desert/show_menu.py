@@ -101,7 +101,7 @@ class ShowMenu(QMainWindow):
         self.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/roll-cake.png"))
         self.setStyleSheet('background-color:black;color:white')
         
-        self.setFixedSize(450, 800) 
+        self.setFixedSize(300, 500) 
 
         self.db = DB(**DB_CONFIG)
 

@@ -15,7 +15,7 @@ class Set(QMainWindow):
         self.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/setting.png"))
         self.setStyleSheet('background-color:black;')
         
-        self.setFixedSize(450, 800) 
+        self.setFixedSize(300, 500) 
 
         self.db = DB(**DB_CONFIG)
 
