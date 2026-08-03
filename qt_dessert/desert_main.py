@@ -10,7 +10,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("QT Dessert")
-        self.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/coffee-shop.png"))
+        self.setWindowIcon(QIcon("qt_desert/coffee-shop.png"))
         self.setStyleSheet('background-color:white;')
 
         self.setFixedSize(300, 500)  #ch
