@@ -7,7 +7,7 @@ class ShowOrder(QMainWindow):
     def __init__(self, list):
         super().__init__()
         self.setWindowTitle("QT Dessert 주문 확인")
-        self.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/roll-cake.png"))
+        self.setWindowIcon(QIcon("qt_dessert/roll-cake.png"))
         self.setStyleSheet('background-color:black;')
         self.db = DB(**DB_CONFIG)
 

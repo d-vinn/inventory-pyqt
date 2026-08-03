@@ -6,7 +6,7 @@ class modprice_dialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setWindowTitle("가격 수정")
-        self.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/setting.png"))
+        self.setWindowIcon(QIcon("qt_dessert/setting.png"))
         self.setStyleSheet('background-color:white;')
         self.db = DB(**DB_CONFIG)
 

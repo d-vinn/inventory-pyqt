@@ -98,7 +98,7 @@ class ShowMenu(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("QT Dessert 주문")
-        self.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/roll-cake.png"))
+        self.setWindowIcon(QIcon("qt_dessert/roll-cake.png"))
         self.setStyleSheet('background-color:black;color:white')
         
         self.setFixedSize(300, 500) 

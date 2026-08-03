@@ -8,7 +8,7 @@ class ShowEnd(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("QT Dessert 주문 완료")
-        self.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/roll-cake.png"))
+        self.setWindowIcon(QIcon("qt_dessert/roll-cake.png"))
         self.setStyleSheet('background-color:white;')
         self.db = DB(**DB_CONFIG)
 
@@ -16,7 +16,7 @@ class ShowEnd(QMainWindow):
         message_box.setWindowTitle("Information")
         message_box.setText("주문이 완료되었습니다.")
         message_box.setIcon(QMessageBox.Icon.Information)
-        message_box.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/roll-cake.png"))
+        message_box.setWindowIcon(QIcon("qt_dessert/roll-cake.png"))
         message_box.exec()
         sys.exit(0) 
 

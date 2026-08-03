@@ -6,7 +6,7 @@ class del_dialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setWindowTitle("메뉴 삭제")
-        self.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/setting.png"))
+        self.setWindowIcon(QIcon("qt_dessert/setting.png"))
         self.setStyleSheet('background-color:white;')
         self.db = DB(**DB_CONFIG)
 

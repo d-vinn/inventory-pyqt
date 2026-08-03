@@ -12,7 +12,7 @@ class Set(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("QT Dessert Settings")
-        self.setWindowIcon(QIcon("C:/pyqt_prac/qt_desert/setting.png"))
+        self.setWindowIcon(QIcon("qt_dessert/setting.png"))
         self.setStyleSheet('background-color:black;')
         
         self.setFixedSize(300, 500) 
