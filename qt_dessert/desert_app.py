@@ -1,7 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication
 from desert_main import MainWindow
-from login import LoginDialog
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

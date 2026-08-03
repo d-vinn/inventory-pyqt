@@ -62,8 +62,8 @@ class MainWindow(QMainWindow):
         btn_st = """
             QPushButton {
                 border: solid black;
-                background-color: black;
-                color: white;
+                background-color: rgb(255, 240, 72);
+                color: rgb(100,100,100);
                 border-radius: 12px;
                 padding: 6px 12px;
                 font-weight: bold;

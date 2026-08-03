@@ -8,7 +8,7 @@ class ShowOrder(QMainWindow):
         super().__init__()
         self.setWindowTitle("QT Dessert 주문 확인")
         self.setWindowIcon(QIcon("qt_dessert/roll-cake.png"))
-        self.setStyleSheet('background-color:black;')
+        self.setStyleSheet('background-color:white;')
         self.db = DB(**DB_CONFIG)
 
         central = QWidget()
@@ -20,16 +20,16 @@ class ShowOrder(QMainWindow):
         self.db_update = []
 
         top = QLabel("<H6>주문 내역을 확인해주세요.</H6>")
-        top.setStyleSheet('color:white;')
+        top.setStyleSheet('color:black;')
         bigvbox.addWidget(top)
         for i in range(len(name_col)):
             if list[i]>0:
                 hbox = QHBoxLayout()
                 hname=QLabel(str(name_col[i])[2:-3])
-                hname.setStyleSheet('color:white;')
+                hname.setStyleSheet('color:rgb(100,100,100);')
                 hbox.addWidget(hname)
                 hcount = QLabel(str(list[i]))
-                hcount.setStyleSheet('color:white;')
+                hcount.setStyleSheet('color:rgb(100,100,100);')
                 hbox.addWidget(hcount)
 
                 bigvbox.addLayout(hbox)
@@ -37,7 +37,17 @@ class ShowOrder(QMainWindow):
 
         
         self.btn_order = QPushButton("주문이 맞게 들어갔습니다.")
-        self.btn_order.setStyleSheet('color:black;background-color:white')
+        self.btn_order.setStyleSheet('''
+                    QPushButton {
+                        color: black;
+                        background-color: rgb(255, 240, 72);
+                        border-radius: 10px;
+                        padding: 8px;
+                    }
+                    QPushButton:hover {
+                        background-color: #e0e0e0;
+                    }
+                ''')
         self.btn_order.clicked.connect(self.show_end)
         bigvbox.addWidget(self.btn_order)
 

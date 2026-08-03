@@ -7,13 +7,14 @@ from add_item import add_dialog
 from del_item import del_dialog
 from mod_item import mod_dialog
 from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import Qt
 
 class Set(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("QT Dessert Settings")
         self.setWindowIcon(QIcon("qt_dessert/setting.png"))
-        self.setStyleSheet('background-color:black;')
+        self.setStyleSheet('background-color:rgb(255, 240, 72);')
         
         self.setFixedSize(300, 500) 
 
@@ -22,7 +23,7 @@ class Set(QMainWindow):
         central = QWidget()
         self.setCentralWidget(central)
         vbox = QVBoxLayout(central)
-        vbox.setContentsMargins(15, 15, 15, 15) 
+        vbox.setContentsMargins(20, 20, 20, 20) 
 
         btn_style = """
             QPushButton {
@@ -56,11 +57,53 @@ class Set(QMainWindow):
         btn_box.addWidget(self.btn_mod)
 
         self.table = QTableWidget()
-        self.table.setStyleSheet('background:white;color:black;')
         self.table.setColumnCount(3)
         self.table.setHorizontalHeaderLabels(["메뉴명", "가격", "잔여 수량"])
-        self.table.setEditTriggers(self.table.NoEditTriggers)  # 표준 예시: 목록은 읽기 전용
+        self.table.setEditTriggers(self.table.NoEditTriggers)  
         self.table.verticalHeader().setVisible(False)
+        self.table.setShowGrid(False)
+        self.table.setSelectionBehavior(QTableWidget.SelectRows)
+
+        self.table.setStyleSheet("""
+            QTableWidget {
+                background-color: #ffffff;
+                color: #222222;
+                border-radius: 12px;
+                border: none;
+                gridline-color: transparent;
+                font-size: 14px;
+            }
+            QTableWidget::item {
+                border-bottom: 1px solid #f0f0f0; 
+                padding: 10px 5px;
+            }
+            QTableWidget::item:selected {
+                background-color: #f5f5f5;
+                color: #000000;
+            }
+            QHeaderView::section {
+                background-color: #fafafa;
+                color: #666666;
+                font-size: 13px;
+                border: none;
+                border-bottom: 2px solid #e2e2e2;
+            }
+            QHeaderView::section:first {
+                border-top-left-radius: 12px;
+            }
+            QHeaderView::section:last {
+                border-top-right-radius: 12px;
+            }
+        """) 
+
+        header = self.table.horizontalHeader() 
+        header.setSectionResizeMode(0, QHeaderView.Stretch)  
+        header.setSectionResizeMode(1, QHeaderView.Interactive) 
+        header.setSectionResizeMode(2, QHeaderView.Interactive) 
+        self.table.setColumnWidth(1, 100)
+        self.table.setColumnWidth(2, 100)
+        
+        self.table.verticalHeader().setDefaultSectionSize(30)
 
         self.table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
